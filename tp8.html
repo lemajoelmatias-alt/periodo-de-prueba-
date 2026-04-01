@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detector de Palíndromos</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; padding-top: 50px; }
+        .container { border: 1px solid #ccc; padding: 20px; border-radius: 8px; box-shadow: 2px 2px 10px rgba(0,0,0,0.1); }
+        input { padding: 8px; width: 250px; }
+        button { padding: 8px 15px; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 4px; }
+        #resultado { margin-top: 15px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>¿Es un palíndromo?</h2>
+    <input type="text" id="entrada" placeholder="Escribe una frase...">
+    <button onclick="verificar()">Comprobar</button>
+    <p id="resultado"></p>
+</div>
+
+<script>
+    function verificar() {
+        const textoOriginal = document.getElementById("entrada").value;
+        const mensaje = document.getElementById("resultado");
+
+        const textoLimpio = textoOriginal.toLowerCase().replace(/[\W_]/g, "");
+
+        // 2. Invertir la cadena
+        const textoInvertido = textoLimpio.split("").reverse().join("");
+
+        if (textoLimpio === "") {
+            mensaje.innerText = "Por favor, escribe algo.";
+            mensaje.style.color = "orange";
+        } else if (textoLimpio === textoInvertido) {
+            mensaje.innerText = "¡Sí! Es un palíndromo.";
+            mensaje.style.color = "green";
+        } else {
+            mensaje.innerText = "No, no lo es.";
+            mensaje.style.color = "red";
+        }
+    }
+</script>
+
+</body>
+</html>

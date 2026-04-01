@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio de Paridad</title>
+</head>
+<body>
+
+    <h2>Verificar si un número es Par o Impar</h2>
+    <input type="number" id="numeroUsuario" placeholder="Escribe un número">
+    <button onclick="mostrarResultado()">Verificar</button>
+
+    <p id="pantalla"></p>
+    <script>
+
+    
+        function determinarParidad(numero) {
+            if (numero % 2 === 0) {
+                return "El número " + numero + " es par.";
+            } else {
+                return "El número " + numero + " es impar.";
+            }
+        }
+
+        
+        function mostrarResultado() {
+            
+            let num = document.getElementById("numeroUsuario").value;
+            
+            if (num === "") {
+                alert("Por favor, ingresa un número");
+                return;
+            }
+
+            
+            let resultadoTexto = determinarParidad(parseInt(num));
+
+            
+            document.getElementById("pantalla").innerText = resultadoTexto;
+        }
+</script>
+</body>
+</html>
